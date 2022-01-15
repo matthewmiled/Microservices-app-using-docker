@@ -55,7 +55,7 @@ An blog web app made with Django and mysql that is run in Docker containers.
 
 ### DELETE request to delete specific blog post
 
-** Request
+**Request**
 
 * `DELETE /api/blogposts/<str:id>`
 
