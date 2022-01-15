@@ -9,7 +9,7 @@ An blog web app made with Django and mysql that is run in Docker containers.
 
 **Request**
 
-* `GET /api/blogposts/`
+* `GET /api/blogposts`
 
 **Response**
 
@@ -37,7 +37,7 @@ An blog web app made with Django and mysql that is run in Docker containers.
 
 **Request**
 
-* `POST /api/blogposts/`
+* `POST /api/blogposts`
 
 **Arguments**
 
@@ -55,7 +55,7 @@ An blog web app made with Django and mysql that is run in Docker containers.
 
 **Request**
 
-* `GET /api/blogposts/<str:id>/`
+* `GET /api/blogposts/<str:id>`
 
 **Response**
 
@@ -76,7 +76,7 @@ An blog web app made with Django and mysql that is run in Docker containers.
 
 **Request**
 
-* `PUT /api/blogposts/<str:id>/`
+* `PUT /api/blogposts/<str:id>`
 
 **Arguments**
 
@@ -103,7 +103,7 @@ An blog web app made with Django and mysql that is run in Docker containers.
 
 **Request**
 
-* `DELETE /api/blogposts/<str:id>/`
+* `DELETE /api/blogposts/<str:id>`
 
 **Response**
 
