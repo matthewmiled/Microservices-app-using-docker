@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  backend:                      # 1. the main Django backend service
+    build:
+      context: .
+      dockerfile: Dockerfile    # build using the image defined in 'Dockerfile'
+    ports:
+      - 8000:8000               # <host port>:<docker file/container port>  --> we are port mapping from the container to the host that is running docker
+    volumes:
+      - .:/app                   # everytime we make a change to the container/app - it will store the info on a volume within the host (/app)
+    depends_on:
+      - db
+
+  db:                           # 2. the mysql database service
+    image: mysql:5.7.22
+    restart: always
+    environment:
+      MYSQL_DATABASE: admin
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - .dbdata:/var/lib/mysql # saving all database data to a folder called .dbdata and mapping this to a volume on the host @ /var/lib/mysql
+    ports:
+      - 33066:3306             # 3306 is the default port that mysql runs on in the container -> mapping this to port 33066 on the docker host
+
