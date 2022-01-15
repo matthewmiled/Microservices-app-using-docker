@@ -51,7 +51,7 @@ An blog web app made with Django and mysql that is run in Docker containers.
 
 * TBC
 
-__
+---
 
 ### DELETE request to delete specific blog post
 
@@ -59,10 +59,10 @@ __
 
 * `DELETE /api/blogposts/<str:id>`
 
-** Response
+**Response**
 
 * TBC
 
-__
+---
 
 
