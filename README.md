@@ -1,53 +1,53 @@
 # Microservices-app-using-docker
 An blog web app made with Django and mysql that is run in Docker containers.
 
---
+---
 
 ## API Usage
 
 ### GET request to list all blog posts
 
-** Request **
+**Request**
 
 * `GET /api/blogposts`
 
-** Response **
+**Response**
 
 * TBC
 
---
+---
 
 ### POST request to create a new blog post
 
-** Request **
+**Request**
 
 * `POST /api/blogposts`
 
-** Response **
+**Response**
 
 * TBC
 
---
+---
 
 ### GET request to retrieve specific blog post
 
-** Request **
+**Request**
 
 * `GET /api/blogposts/<str:id>`
 
-** Response **
+**Response**
 
 * TBC
 
---
+---
 
 ### PUT request to update specific blog post
 
-** Request **
+**Request**
 
 * `PUT /api/blogposts/<str:id>`
 
-** Response **
+**Response**
 
 * TBC
 
