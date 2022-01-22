@@ -4,12 +4,25 @@ services:
     build:
       context: .
       dockerfile: Dockerfile    # build using the image defined in 'Dockerfile'
+    
+    command: 'python manage.py runserver 0.0.0.0:8000'
+
     ports:
       - 8000:8000               # <host port>:<docker file/container port>  --> we are port mapping from the container to the host that is running docker
     volumes:
       - .:/app                   # everytime we make a change to the container/app - it will store the info on a volume within the host (/app)
     depends_on:
       - db
+
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: 'python3 consumer.py'
+    depends_on:
+      - db
+
+
 
   db:                           # 2. the mysql database service
     image: mysql:5.7.22

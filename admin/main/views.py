@@ -5,13 +5,15 @@ from rest_framework.views import APIView
 
 from .models import BlogPost, User
 from .serializers import BlogPostSerializer
+from .producer import publish
 import random
 
 class BlogPostViewSet(viewsets.ViewSet):
     def list(self, request):               # api endpoint of: GET /api/blogposts
         blog_posts = BlogPost.objects.all()
         serializer = BlogPostSerializer(blog_posts, many=True)
-        
+        publish()
+
         return Response(serializer.data)
 
     def create(self, request):             # api endpoint of: POST /api/blogposts
