@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 # TO MIGRATE, MAKE SURE YOU WRITE THE MIGRATE COMMAND WITHIN THE DOCKER CONTAINER

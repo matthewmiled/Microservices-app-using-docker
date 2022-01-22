@@ -12,7 +12,6 @@ class BlogPostViewSet(viewsets.ViewSet):
     def list(self, request):               # api endpoint of: GET /api/blogposts
         blog_posts = BlogPost.objects.all()
         serializer = BlogPostSerializer(blog_posts, many=True)
-        publish()
 
         return Response(serializer.data)
 
@@ -20,6 +19,8 @@ class BlogPostViewSet(viewsets.ViewSet):
         serializer = BlogPostSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+
+        publish('blogpost_created', serializer.data)
         
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -45,6 +46,8 @@ class BlogPostViewSet(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
+        publish('blogpost_updated', serializer.data)
+
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
 
     def destroy(self, request, pk=None):    # api endpoint of: DELETE /api/blogposts/<str:id>
@@ -54,6 +57,8 @@ class BlogPostViewSet(viewsets.ViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
         
         blog_post.delete()
+
+        publish('blogpost_deleted', pk)
 
         return Response(status=status.HTTP_204_NO_CONTENT)
 
