@@ -10,6 +10,8 @@ Making an API call using the end points below will update the 'admin' database, 
 * `admin` app is made in Django and ran within a docker container on port 8000 - see docker-compose.yml within the `admin` folder
 * `mysite` app is made in Django and ran within a docker container on port 8001 - see docker-compose.yml within the `mysite` folder
 
+* Build images by running `docker-compose up --build` in the command line within each of the app directories
+
 ---
 
 ## API Usage
