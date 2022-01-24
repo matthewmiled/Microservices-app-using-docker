@@ -1,5 +1,7 @@
 # Microservices-app-using-docker
-An blog web app made with Django and mysql that is run in Docker containers.
+A test project to showcase how 2 separate apps made with Django can be containerised in Docker and communicate via RabbitMQ.
+
+Making an API call using the end points below will update the 'admin' database, which will in turn update the database for the 'mysite' app using messaging with RabbitMQ. 
 
 ---
 
