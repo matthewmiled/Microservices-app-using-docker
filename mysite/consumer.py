@@ -24,20 +24,37 @@ def callback(ch, method, properties, body):
     print(data)
 
     if properties.content_type == 'blogpost_created':
-        blogpost = BlogPost(id=data['id'], title=data['title'], image=data['image'])
         
-        blogpost.save()
+        try:
+            blogpost = BlogPost(id=data['id'], title=data['title'], image=data['image'])
+            print("Blogpost created")
+            blogpost.save()
+        
+        except BlogPost.DoesNotExist:
+            print("Not found")
 
     elif properties.content_type == 'blogpost_updated':
-        blogpost = BlogPost.objects.get(id=data['id'])
-        blogpost.title = data['title']
-        blogpost.image = data['image']
 
-        blogpost.save()
+        ## THIS GET REQUEST PART ISN'T QUITE WORKING (CANNOT FIND BLOGPOST WITH ID THAT IS PASSED)
+
+        try:
+            blogpost = BlogPost.objects.get(id=data['id'])
+            blogpost.title = data['title']
+            blogpost.image = data['image']
+            print("Blogpost updated")
+            blogpost.save()
+
+        except BlogPost.DoesNotExist:
+            print("Not found")
 
     elif properties.content_type == 'blogpost_deleted':
-        blogpost = BlogPost.objects.get(id=data)
-        blogpost.delete()
+
+        try:
+            blogpost = BlogPost.objects.get(id=data)
+            print("Blogpost deleted")
+            blogpost.delete()
+        except BlogPost.DoesNotExist:
+            print("Not found")
 
 
                 
